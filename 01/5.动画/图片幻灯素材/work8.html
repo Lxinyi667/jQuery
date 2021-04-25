@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        ul{list-style: none;}
+        body{margin:50px;}
+       
+        .container{
+            width:750px;height: 291px;
+            border:1px solid pink;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .container .cont{position: relative;}
+        .container .cont ul{
+            width: 4500px;
+            position: absolute;
+            top:0;left: 0;
+        }
+        .container .cont img{vertical-align: top;}
+        .container .cont ul li{float: left;}
+        .butt{
+            position: absolute;list-style: none;
+            bottom: 10px;right: 20px;
+        }
+        .butt li{
+            float: left;font-size: 12px;
+            width:20px;height: 20px;line-height: 20px;
+            text-align: center;
+            background-color: black;color:white;
+            border-radius: 50%;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        .hot{background-color: red !important;}
+         /*左右箭头*/
+        .zuo ,.you{
+            width:40px;height: 50px;line-height: 50px;
+            text-align: center;font-weight: bolder;
+            background-color: rgba(0,0,0,0.3);color: #CCC;
+            font-size: 40px;float: left;display: none;
+            position: absolute;
+            top:125px;
+            cursor: pointer;
+            font-family: "黑体";
+        }
+        .hot1{display: block;}
+        .zuo {left: 5px;}
+        .you {right: 5px;}
+    </style>
+    <script type="text/javascript" src="E:/2020四年级/0.JS and JQuery/2.JQuery/01/scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+$(function (argument) {
+    var w=$(".container").width();
+    // console.log(w);
+    var page=1;
+    var tim;
+    $(".pic").mouseover(function(){
+                clearInterval(tim);
+                
+                console.log(page)
+                
+            }).mouseout(function(){
+                clearInterval(tim);
+                
+                tim = setInterval(function(){
+                console.log(w);
+                page++;
+                if(page>6){
+                    $(".pic").stop(true,true).animate({left:"0"},500)
+                    page=1;
+                }else{
+                $(".pic").stop(true,true).animate({left:"-="+w+"px"},500)
+                }
+                $(".butt li").eq(page-1).addClass("hot").siblings().removeClass("hot")
+            },2000)
+            }).mouseout()
+    $(".zuo").click(function(event) {
+        if(page==1){
+                page=6;
+                $(".cont>ul").stop(true,true).animate({left: (-5*w)+"px"},200);
+            }else {
+                page--;
+                $(".cont>ul").stop(true,true).animate({left: "+="+w+"px"},200);
+            }
+            $(".butt li").eq(page-1).addClass('hot').siblings().removeClass('hot');
+    });
+    $(".you").click(function(event) {
+        if(page==6){
+            // 如果在第 六页；让page回到第一页（left:0;）
+                page=1;
+                $(".cont>ul").stop(true,true).animate({left: "0"},200);
+            }else {
+            // 不在第四页的时候，page一直+一个w的宽度【向右是-=;向左是+=;】
+                page++;
+                $(".cont>ul").stop(true,true).animate({left: "-="+w+"px"},200);
+            }
+            $(".butt li").eq(page-1).addClass('hot').siblings().removeClass('hot');
+
+        
+    });
+    $(".butt>li").mouseover(function(event) {
+             var i=$(this).index();
+             page=i+1;
+             $(this).addClass('hot').siblings().removeClass('hot');
+             $(".cont>ul").stop(true,true).animate({left: (-i*w)+"px"},200);
+         });
+    $(".container").mouseover(function (argument) {
+        $(this).children('span').addClass('hot1');
+    });
+    $(".container").mouseout(function (argument) {
+        $(this).children('span').removeClass('hot1');
+    }); 
+// 1、页面加载时，6张图片轮流显示
+//2、鼠标移动上去时自动切换停止，鼠标移出时继续自动切花
+//3、鼠标以上去的时候，出现半透明按钮，可以切换到上一张和下一张
+
+//4、图片切换时，下方123456的背景自动切换。鼠标移动到数字上时，可以自动跳转到对应的广告图。
+})
+    
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="cont">
+        <ul class="pic">
+            <li><img src="../图片幻灯素材/1.jpg" alt=""></li>
+            <li><img src="../图片幻灯素材/2.jpg" alt=""></li>
+            <li><img src="../图片幻灯素材/3.jpg" alt=""></li>
+            <li><img src="../图片幻灯素材/4.jpg" alt=""></li>
+            <li><img src="../图片幻灯素材/5.jpg" alt=""></li>
+            <li><img src="../图片幻灯素材/6.jpg" alt=""></li>
+        </ul> 
+    </div>
+    <ul class="butt">
+            <li class="hot">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+    </ul>
+       
+
+    <span class="zuo"><</span>
+    <span class="you">></span>
+</div>
+</body>
+</html>

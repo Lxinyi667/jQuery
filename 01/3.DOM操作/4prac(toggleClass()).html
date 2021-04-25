@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        div{width:100px;height:100px;border:1px solid black;}
+        .hot{background:pink;}
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function (argument) {
+            $(":button").click(function(event) {
+                $("div").toggleClass('hot');
+            });
+        });
+    </script>
+</head>
+<body>
+ <!--    <input type="checkbox" checked>1
+    <input type="checkbox" checked>2
+    <input type="checkbox" checked>3
+    <input type="checkbox" checked>4
+    <input type="checkbox" checked>5 -->
+    <div></div>
+    <input type="button" value="sleep tight">
+</body>
+</html>

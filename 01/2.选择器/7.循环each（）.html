@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function (argument) {
+            $("div").each(function (i,e) {
+                // console.log($(this).html());
+                 $(this).html($(e).html()+(i+1));  
+                //index-选择器index的位置,element
+                console.log("当前元素的索引是："+i+"    "+$(e).html()) ;
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>666</div>
+    <div>555</div>
+    <div>444</div>
+    <div>333</div>
+    <div>222</div>
+    <div>111</div>
+    
+</body>
+</html>

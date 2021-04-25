@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin:0;padding: 0;}
+        div{width:200px;height: 280px;float: left;text-align: center;line-height: 21px;margin-right:6px; }
+        img{opacity: 1;}
+        img:hover{opacity: 0.5;}
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+    $(function  (argument) {
+        $("div").mouseenter(function(e) { 
+            //clone只能在进来的时候clone，出去不clone
+            $(this).clone().attr("id","hello").css({position:"absolute",left:e.pageX,top:e.pageY,opacity:"0.6"}).appendTo($("body"));
+        }).mouseleave(function (argument) {
+            $("#hello").remove();
+           
+        }).mousemove(function(e) {
+        //使图片跟着鼠标走
+            $("#hello").css({left:e.pageX+10+"px",top:e.pageY+10+"px"});
+        });
+    });
+    </script>
+</head>
+<body>
+    <div>
+        <img src="1.JPG" alt="">
+        <span>长袖衬衫</span>
+        <h4>价格：100元</h4>
+        <a href="#">选择</a>
+    </div>
+    <div>
+        <img src="1.JPG" alt="">
+        <span>长袖衬衫</span>
+        <h4>价格：200元</h4>
+        <a href="#">选择</a>
+    </div>
+    <div>
+        <img src="1.JPG" alt="">
+        <span>长袖衬衫</span>
+        <h4>价格：300元</h4>
+        <a href="#">选择</a>
+    </div>
+    <div>
+        <img src="1.JPG" alt="">
+        <span>长袖衬衫</span>
+        <h4>价格：400元</h4>
+        <a href="#">选择</a>
+    </div>
+</body>
+</html>

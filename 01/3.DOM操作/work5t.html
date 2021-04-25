@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin:0;padding: 0;}
+        ul{list-style: none;}
+/*header*/
+        .con{
+            margin-left: 40px;
+            width:570px;
+            height: 690px;border:1px solid pink;
+        }
+        .header{
+            width:570px;
+            height:120px;
+            background-color: #CCC;
+            margin-bottom: 1px;
+        }
+        .header .a1{float: left;}
+        .header .a2{float: none;}
+        .a1{height: 60px;width:570px;}
+        .a1 img{width: 35px;height: 35px;float: left;margin: 7px 0 0 5px;}
+        .a1 text{float: left;padding-left: 230px;font-size: 26px;margin-top: 5px;}
+/*a2*/
+        .a2 a{text-decoration: none;color: black;
+            /*width: 120px;*/
+            width: 40px;
+            margin: 0px 30px 10px 10px;
+            display: block;font-size: 18px;}
+            .dc{display: block;border-bottom:3px solid orange;}
+        .a2{margin-left: 50px;}
+        .a2 ul li{float: left;height: 55px;line-height: 55px;text-align: center;
+            }
+        
+/*cen*/
+        /*left*/
+        .cen{
+            width:570px;
+            height: 480px;
+            border:1px solid pink; 
+        }
+        .left{
+            float: left;
+            width:130px;
+            height: 480px;
+            background-color: #CCC;
+        }
+        .left a{text-decoration: none;display: block;font-size: 18px;color: black;
+                width:130px;height: 50px;line-height: 50px;text-align: center;
+        }
+        /*.left a:hover{background-color: white;border-left: 3px solid orange;}*/
+    .hot1{background-color: white;border-left: 3px solid orange;}
+        /*.left ul li {border-bottom:1px solid white;}*/
+        /*right*/
+        .right{
+            float: left;
+            width:440px;
+            height: 480px;
+        }
+        .r1,.r2,.r3,.r4,.r5,.r6{margin-left: 3px;}
+        .right img{width:140px;height: 110px;}
+        /*先让他不出来*/
+        .t{float: left;height: 100px;width:140px;border:1px solid pink;}
+        .r{float: left;height: 100px;width: 130px;}
+        .r ul li{margin: 10px 0px 0px 10px; }
+        .r ul .m1{color:red;font-weight: bold;font-size: 18px;display: block;padding-left: 15px;}
+
+        .k{float: left;height:100px;width: 160px;border:1px solid white;}
+        .kk{height: 24px;margin-left: 50px;margin-top: 40px;  }
+        .jian1{font-size: 26px;float: left;width: 27px;height: 27px;line-height: 27px;text-align: center;background-color: pink;border-radius: 30px;}
+        .jia1{float: left;width: 27px;height: 27px;line-height: 27px;text-align: center;background-color: pink;border-radius: 30px;}
+        .m{float: left;margin:0 15px;}
+        .list2{display: none;}
+/*foot*/
+        .foot{
+            width: 570px;
+            height: 90px;border:1px solid #CCC;background-color: #CCC;
+        }
+        .f1{margin:15px 0px 0px 40px;width: 370px;/*border:1px solid pink;*/}
+        .f11 img{width:60px;height: 60px;float: left;}
+        .f11 .jia{width: 23px;height: 23px;background-color: black;border-radius: 30px;
+            position: relative;border:1px solid pink;float: left;margin-left: -15px;color:white;padding-left: 5px;}
+        /*.f11 .jia text{color: white;padding-left: 7px;}*/
+        .f111 text{font-size: 20px;float: left;margin-top: 15px;margin-left:20px; }
+        .f111 .money {float: left;margin-top:13px;margin-left:17px;font-size: 24px;font-weight: bold;color: red;}
+        .f111 .money text{margin-top:1px;margin-left:4px;font-size: 24px;font-weight: bold;}
+        .f2{width:200px;height: 90px;line-height: 90px;text-align: center;background-color: #CCC;position: fixed;top:605px; ;font-size: 28px;left: 410px; }
+        .hot{background-color: pink;}
+        .nice{margin-left: 66px;}
+        .hot3{margin-top:13px;margin-left:17px;}
+        .hide{display: none;}
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+$(function (argument) {
+//选项卡切换事件
+    $(".cen>.left>ul>.ll1").click(function(event) {
+        // var i=$(this).index();
+        $(".list1").show();
+        $(".list1").siblings('.list2').hide();
+        $(this).children('a').addClass('hot1');
+        $(this).siblings('.ll2').children('a').removeClass('hot1'); 
+    });
+    $(".cen>.left>ul>.ll2").click(function(event) {
+        // var i=$(this).index();
+        $(".list2").show();
+        $(".list2").siblings('.list1').hide();
+        $(this).children('a').addClass('hot1');
+        $(this).siblings('.ll1').children('a').removeClass('hot1');
+    });
+//
+//默认情况：
+var count=0;
+$(".kk").children('.jian1').hide();
+$(".kk").children('.jian1').next().hide();
+$(".kk").children('.jia1').addClass('nice');
+
+//菜单加法符号事件发生的效果
+    $(".jia1").click(function(event) {
+        //使购物车的数量随着点击的增加
+            $(this).prev('.m').show();
+            $(this).prev('.m').prev().show();
+            $(this).removeClass('nice');
+               count=count+1;
+        $(".jia").text(count);
+        $(".f2").addClass('hot');
+        //使各个菜品的数量增加
+        var count1=parseInt($(this).prev('.m').text())+1;
+        $(this).prev('.m').text(count1);
+        //计算价钱
+        var count2=parseInt($(this).parents('.k').prev('.r').children('ul').children('.m1').text().slice(1));
+        $(".money").text(parseInt($(".money").text())+count2);
+
+    });
+//菜单减法符号事件发生的效果           
+    $(".jian1").click(function(event) {
+    //计算购物车tb内的数量
+        if(parseInt(count)>0){
+            count=count-1;
+            $(".jia").text(count);
+        }else{
+            $(".jia").text(0);  
+        }
+var count1=parseInt($(this).next('.m').text())-1;
+        //注意添加单品数量小于0时的处理，防止出现负数。
+        if(parseInt(count1)>0){
+            $(this).next('.m').text(count1); 
+        }else {
+            $(this).next('.m').text(0);
+            // $(this).next('.m').addClass('m');
+            $(this).hide();
+            $(this).next().hide();
+            $(this).next().next().addClass('nice');
+        }
+        var count2=parseInt($(this).parents('.k').prev('.r').children('ul').children('.m1').text().slice(1));
+        // var count3=parseInt($(".money").text())-count2;
+        if(parseInt(parseInt($(".money").text())-count2)>0){
+            $(".money").text(parseInt($(".money").text())-count2);  
+        }else {
+            $(".money").text(0);
+            $(".f2").removeClass('hot');       
+        }
+    });
+           $(".f2").click(function(event) {
+            $data='';
+            $data=$data+
+               alert("您已加入购物车 "+$(this).prev().children().children('.jia').html()+"件商品;\n总需要支付："+$(this).prev().children().children('.money').html()+"元♥请您确认~");
+           });
+        })
+    </script>
+</head>
+<body>
+    <div class="con">
+        <div class="header">
+            <div class="a1">
+                <img src="../3.DOM操作/素材/left.png" alt="">
+                <text>商品</text>
+            </div>
+            <div class="a2">
+                <ul>
+                    <li><a href="#" class="dc">点菜</a></li>
+                    <li><a href="#">商家</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cen">
+            <!-- 左侧 -->
+            <div class="left">
+                <ul>
+                    <li class="ll1"><a href="#" class="hot1">营养套餐</a></li>
+                    <li class="ll2"><a href="#">实惠炒菜</a></li>
+                </ul>
+            </div>
+            <!-- 右侧  -->
+            <div class="right">
+                <div class="list1">
+                    <div class="r1">
+                        <div class="t"><img src="../3.DOM操作/素材/chc.jpg" alt=""></div>
+                        <div class="r">
+                            <ul>
+                                <li>炒花菜</li>
+                                <li>月销量：23</li>
+                                <li class="m1"><text>￥1</text></li>
+                            </ul>
+                        </div>
+
+                        <div class="k">
+                            <div class="kk">
+                                <div class="jian1">-</div>
+                                <div class="m"><text>0</text></div>
+                                <div class="jia1">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="r2">
+                        <div class="t"><img src="../3.DOM操作/素材/dsrp.jpg" alt=""></div>
+                        <div class="r">
+                            <ul>
+                                <li>爆炒肉片</li>
+                                <li>月销量：56</li>
+                                <li class="m1"><text>￥2</text></li>
+                            </ul>
+                        </div>
+                        <div class="k">
+                            <div class="kk">
+                                <div class="jian1">-</div>
+                                <div class="m"><text>0</text></div>
+                                <div class="jia1">+</div>
+                            </div>      
+                        </div>
+                    </div>
+                    <div class="r3">
+                        <div class="t"><img src="../3.DOM操作/素材/yp.jpg" alt=""></div>
+                        <div class="r">
+                            <ul>
+                                <li>香葱炒肉</li>
+                                <li>月销量：12</li>
+                                <li class="m1"><text>￥3</text></li>
+                            </ul>
+                        </div>
+                        <div class="k">
+                            <div class="kk">
+                                <div class="jian1">-</div>
+                                <div class="m"><text>0</text></div>
+                                <div class="jia1">+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               <div class="list2">
+                    <div class="r1">
+                        <div class="t"><img src="../3.DOM操作/素材/xjdmg.jpg" alt=""></div>
+                        <div class="r">
+                            <ul>
+                                <li>小鸡炖蘑菇</li>
+                                <li>月销量：23</li>
+                                <li class="m1"><text>￥4</text></li>
+                            </ul>
+                        </div>
+                        <div class="k">
+                            <div class="kk">
+                                <div class="jian1">-</div>
+                                <div class="m"><text>0</text></div>
+                                <div class="jia1">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="r2">
+                        <div class="t"><img src="../3.DOM操作/素材/lfc.jpg" alt=""></div>
+                        <div class="r">
+                            <ul>
+                                <li>大盘鸡</li>
+                                <li>月销量：56</li>
+                                <li class="m1"><text>￥5</text></li>
+                            </ul>
+                        </div>
+                        <div class="k">
+                            <div class="kk">
+                                <div class="jian1">-</div>
+                                <div class="m"><text>0</text></div>
+                                <div class="jia1">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="r3">
+                        <div class="t"><img src="../3.DOM操作/素材/mmq.jpg" alt=""></div>
+                        <div class="r">
+                            <ul>
+                                <li>青椒炒肉丝</li>
+                                <li>月销量：14</li>
+                                <li class="m1"><text>￥6</text></li>
+                            </ul>
+                        </div>
+                        <div class="k">
+                            <div class="kk">
+                                <div class="jian1">-</div>
+                                <div class="m"><text>0</text></div>
+                                <div class="jia1">+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="foot">
+            <div class="f1">
+                <div class="f11">
+                    <img src="../3.DOM操作/素材/gwc.png" alt="">
+                    <div class="jia"><text>0</text></div>
+                </div>
+                <div class="f111">
+                    <text>总计：</text>
+                    <div class="money"><text>0</text></div>
+                    <text>元</text>
+                    
+                </div>
+            </div>
+
+            <div class="f2">结算</div>
+        </div>
+    </div>
+</body>
+</html>

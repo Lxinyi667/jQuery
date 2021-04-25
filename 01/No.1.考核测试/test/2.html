@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        ul {list-style: none;}
+        a{text-decoration: none;color:black;}
+        li:hover{background-color: pink;color:white;}
+        .con{
+            width:364px;height: 298px;
+            border:2px solid pink;
+            overflow: hidden;
+        }
+        img{display: block;
+            width:200px;
+            height: 290px;
+        }
+        .left{float: left;width: 80px;border:1px solid pink}
+        ul li{border:1px solid pink;
+              text-align: center;
+              padding: 5px;
+        }
+        .center{float: left;margin: 0 auto;}
+        .right{float: left;width: 80px;border:1px solid pink}
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.12.2.js"></script>
+    <script type="text/javascript">
+        $(function (argument) {
+            // $("img:gt(0)").hide();
+            $(".left>ul>li").mouseover(function(event) {
+                var i=$(this).index();
+                $(".center>img").eq(i).show().siblings().hide();
+               
+            });
+            $(".right>ul>li").mouseover(function(event) {
+                var i=$(this).index();
+                $(".center>img").eq(10+i).show().siblings().hide();
+               
+            });
+        })
+    </script>
+</head>
+<body>
+<div class="con">
+   <div class="left">
+       <ul>
+           <li><a href="">女靴</a></li>
+           <li><a href="">雪地靴</a></li>
+           <li><a href="">冬裙</a></li>
+           <li><a href="">呢大衣</a></li>
+           <li><a href="">毛衣</a></li>
+           <li><a href="">棉服</a></li>
+           <li><a href="">女裤</a></li>
+           <li><a href="">羽绒服</a></li>
+           <li><a href="">牛仔裤</a></li>
+       </ul>
+   </div>
+    <div class="center">
+
+        <img src="../scripts/第二题/女靴.jpg" alt="">
+        <img src="../scripts//第二题/雪地靴.jpg" alt="">
+        <img src="../scripts/第二题/冬裙.jpg" alt="">
+        <img src="../scripts/第二题/呢大衣.jpg" alt="">
+        <img src="../scripts/第二题/毛衣.jpg" alt="">
+        <img src="../scripts/第二题/棉服.jpg" alt="">
+        <img src="../scripts/第二题/女裤.jpg" alt="">
+        <img src="../scripts/第二题/羽绒服.jpg" alt="">
+        <img src="../scripts/第二题/牛仔裤.jpg" alt="">
+        <img src="../scripts/第二题/羽绒服.jpg" alt="">
+        <img src="../scripts/第二题/女包.jpg" alt="">
+        <img src="../scripts/第二题/男包.jpg" alt="">
+        <img src="../scripts/第二题/登山鞋.jpg" alt="">
+        <img src="../scripts/第二题/皮带.jpg" alt="">
+        <img src="../scripts/第二题/围巾.jpg" alt="">
+        <img src="../scripts/第二题/皮衣.jpg" alt="">
+        <img src="../scripts/第二题/男毛衣.jpg" alt="">
+        <img src="../scripts/第二题/男棉服.jpg" alt="">
+        <img src="../scripts//第二题/男靴.jpg" alt="">
+    </div>
+   <div class="right">
+       <ul>
+           <li><a href="">女包</a></li>
+           <li><a href="">男包</a></li>
+           <li><a href="">登山鞋</a></li>
+           <li><a href="">皮带</a></li>
+           <li><a href="">围巾</a></li>
+           <li><a href="">皮衣</a></li>
+           <li><a href="">男毛衣</a></li>
+           <li><a href="">男棉服</a></li>
+           <li><a href="">男靴</a></li>
+       </ul>
+   </div>
+</div>
+</body>
+</html>

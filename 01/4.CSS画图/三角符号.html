@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .top{position: absolute;}
+        .top:before,.top:after{
+             position: absolute;
+             content: '';
+             border-top: 10px transparent dashed;
+             border-left: 10px transparent dashed;
+             border-right: 10px transparent dashed;
+             border-bottom: 10px #fff solid;
+        }
+        .top:before{
+         border-bottom: 10px #0099CC solid;
+        }
+        .top:after{
+         top: 1px; /*覆盖并错开1px*/
+         border-bottom: 10px #fff solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="top"></div>
+</body>
+</html>

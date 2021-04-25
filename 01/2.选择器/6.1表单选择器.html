@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        fieldset{width:600px;}
+
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function (argument) {
+    //01-表单选择器
+            console.log($(":input").length);//input代表所有的表单元素，包括select\textarea\button
+            console.log($("input").length);
+           //差别在于select和textarea标签
+            console.log($(":submit").length);//type=submit和<button>
+            //：XXX等价于input[type=xxx],注意，不存在：select和：textarea,因为不需要
+    //02-表单对象属性过滤选择器
+        console.log($(":disabled").length);
+        console.log($(":disabled").removeAttr('disabled'));//移出disabled的input按钮属性
+        console.log($("input:checked").length);//1，但是把select的删除掉就可以是0；因为input中单复选的选中，和下拉列表的选中
+        $(":button").toggle(function (argument) {
+                $(":checkbox").attr("checked",true);
+                $(this).val("全不选");
+            },function (argument) {
+                $(":checkbox").attr("checked",false);
+                $(this).val("全选");
+            });
+        });
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>用户登录</legend>
+    <form action="http://www.taobao.com">
+        姓名：
+        <input type="text" name="xm" list="sss" ><br>
+            <datalist id="sss">
+                <option value="zzz">
+                <option value="xxx">
+                <option value="yyy">
+            </datalist>
+        密码：
+        <input type="password" name="mm"><br>
+        确认密码：
+        <input type="password" name="mm"><br>
+        <input type="radio"><br>
+        <input type="checkbox"><input type="checkbox"><input type="checkbox"><br>
+        <input type="button" value="全选/反选"><br>
+        <!-- 日期 -->
+        <input type="date" disabled=""><br>
+        <input type="month" disabled=""><br>
+        <!-- 只可以输入数字 -->
+        <input type="number" max="10" min="5"><br>
+        <input type="submit"><br>
+        <input type="reset"><br>
+        <input type="image"><br>
+        <!-- 选择文件 -->
+        <input type="file" multiple><br>
+        <select name="" id="">
+            <option value=""></option>
+        </select>
+        <textarea name="" id="" cols="30" rows="10"></textarea>
+        <button>提交</button>
+    </form>
+    </fieldset>
+</body>
+</html>

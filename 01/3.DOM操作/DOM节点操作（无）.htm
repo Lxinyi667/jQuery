@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function (argument) {
+
+           // $("ul li").click(function(event) {
+           //     alert($(this).html());
+           // });
+           $(":button:eq(0)").click(function(event) {
+                //$li="<li>西瓜</li><li>南瓜</li>";
+                $li="<li title='watermelon'>西瓜</li><li title='pumpkin'>南瓜</li>";
+                $("ul").append($li);//追加
+           });
+           $(":button:eq(5)").click(function(event) {
+                var $s=$("ul li:eq(1)").remove();//真的删除而不是假的
+                $("ul").append($s);//append加到末尾；
+                //删除了第二个但是又将第二个加入到了末尾
+           });
+           $(":button:eq(6)").click(function(event) {
+                var $s=$("ul li:eq(1)").empty();//清空节点中的文本；
+           });
+            $("ul li").click(function(event) {
+               //$(this).clone().appendTo('ul');//儿子在前appendTo,父亲在前append()
+               $(this).clone().appendTo('ul');
+           });
+        });
+    </script>
+</head>
+<body>
+<h2>插入节点</h2>
+    <input type="button" value="插入节点两个<li>节点，分别为西瓜和南瓜"/>
+	<input type="button" value="注意区别append和appendTo"/>
+	<input type="button" value="注意区别append和prepend"/>
+	<input type="button" value="使用after在匹配的元素后插入"/>
+	<input type="button" value="使用before在匹配的元素前面插入"/>
+
+<h2>删除节点</h2>
+    <input type="button" value="remove删除节点"/>
+	<input type="button" value="remove删除节点重新加入"/>
+	<input type="button" value="detach vs remove"/>
+    <input type="button" value="empty清空节点"/>
+
+<h2>复制节点</h2>
+    <input type="button" value="复制第一个节点到ul"/>
+	<input type="button" value="复制第一个节点到ul,包含所有行为"/>
+
+<h2>替换节点</h2>
+    <input type="button" value="replaceWith替换第一个节点为冬瓜"/>
+
+<h2>包裹节点</h2>
+    <input type="button" value="wrap用100*100的红色背景div包裹ul"/>
+    <input type="button" value="注意区别wrapAll,集中包裹input"/>
+    <input type="button" value="注意区别wrapInner,包裹子元素，内部包裹<a>"/>
+
+	<p title="选择你最喜欢的水果" ><strong>你最喜欢的水果是?</strong></p>
+	<ul>
+	  <li title='苹果'>苹果</li>
+	  <li title='橘子'>橘子</li>
+	  <li title='菠萝'>菠萝</li>
+	</ul>
+
+</body>
+</html>

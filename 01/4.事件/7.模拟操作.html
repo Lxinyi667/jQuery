@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        h2{
+            width: 200px;height: 40px;line-height: 40px;
+            background-color: #CCC;text-align: center;
+        }
+        p{
+            width:198px;height: 200px;
+            border:1px solid pink;
+        }
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function (argument) {
+    //模拟操作：主要是为了在页面打开的时候，模拟用户操作，来达到单击的效果。例如：在用户进入接点后，就触发click事件，而不需要用户去主动单击
+       // 使用trigger()方法完成模拟操作，
+       $("h2").bind('click', function(event) {
+               $("body").append("<div>我是新家的成员</div>")
+               }).bind('click', function(event) {
+                   $("body").append("<div>我是新家的成员</div>")
+               }).bind('click', function(event) {
+                   $("body").append("<div>我是新家的成员</div>")
+                // }).trigger('click'); 
+            }).click(); 
+        //模拟点击的两种写法：
+           //1.$("#btn").click(function(){}).trigger("click");
+           //2.$("#btn").click(function(){}).click();
+           //这二种方法完全等价的。
+    //模拟鼠标移上去操作
+           $("h2").hover(function  (argument) {
+               alert("I'm on")
+           },function(){
+                alert("I'm off")
+           }).mouseover();
+        });
+    </script>
+</head>
+<body>
+    <h2>我是标题</h2>
+    <p>
+        我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文
+    </p>
+</body>
+</html>

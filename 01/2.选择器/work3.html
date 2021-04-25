@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        .navigator{position: fixed;right: 0;background-color:#af1a21;}
+        a{text-decoration: none;background-color:#af1a21;color:white;width:90px;height:40px;
+        /*border:1px solid pink;*/display: block;}
+        a:hover{background-color:#efefef;color:black; }
+        ul{list-style: none;}
+        ul li{float: left;line-height: 40px;height:40px;
+            text-align: center;}
+        ul li ul li{float: none;background-color: #af1a21;}
+        ul li ul{display: none;}
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function (argument) {
+            $("ul>li").mouseover(function (argument) {
+                $(this).children('ul').show();
+                $(this).siblings('ul').children('ul').hide();
+            })
+            $("ul>li").mouseout(function(event) {
+                $(this).children('ul').hide();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="navigator">
+        <ul>
+            <li><a href="#">首页</a></li>
+            
+            <li><a href="#">学校概况</a>
+                <ul>
+                    <li><a href="#">学校简介</a></li>
+                    <li><a href="#">历史沿革</a></li>
+                    <li><a href="#">领导班子</a></li>
+                    <li><a href="#">组织机构</a></li>
+                    <li><a href="#">教师队伍</a></li>
+                    <li><a href="#">校园环境</a></li>
+                    <li><a href="#">教学实训</a></li>
+                    <li><a href="#">校友风采</a></li>
+                </ul>
+            </li>
+
+            <li><a href="#">党群工作</a>
+                <ul>
+                    <li><a href="#">党员风采</a></li>
+                    <li><a href="#">民主党派</a></li>
+                    <li><a href="#">党建之窗</a></li>
+                    <li><a href="#">廉洁文化</a></li>
+                    <li><a href="#">团委</a></li>
+                    <li><a href="#">工会之家</a></li>
+                    <li><a href="#">关工委退款</a></li>
+                </ul>
+            </li>
+            <li><a href="#">四系建设</a>
+                <ul>
+                    <li><a href="#">信息艺术系</a></li>
+                    <li><a href="#">现代服务系</a></li>
+                    <li><a href="#">会计系</a></li>
+                    <li><a href="#">金融系</a></li>
+                </ul>
+            </li>
+            <li><a href="#">部门管理</a>
+                <ul>
+                    <li><a href="#">校务工作部</a></li>
+                    <li><a href="#">学生工作部</a></li>
+                    <li><a href="#">教学工作部</a></li>
+                    <li><a href="#">后勤工作部</a></li>
+                    <li><a href="#">招生就业培</a></li>
+                    <li><a href="#">信息中心</a></li>
+                    <li><a href="#">团委</a></li>
+                    <li><a href="#">安全工作部</a></li>
+                    <li><a href="#">督导室</a></li>
+                    <li><a href="#">教师发展中</a></li>
+                </ul>
+            </li>
+            <li><a href="#">招生就业</a>
+                <ul>
+                    <li><a href="#">专业设置</a></li>
+                    <li><a href="#">招生信息</a></li>
+                    <li><a href="#">升学就业</a></li>
+                    <li><a href="#">就业报名</a></li>
+                    <li><a href="#">中考报名</a></li>
+                    <li><a href="#">优秀毕业生</a></li>
+                </ul>
+            </li>
+            <li><a href="#">合作交流</a>
+                <ul>
+                    <li><a href="#">校企合作</a></li>
+                    <li><a href="#">国际交流</a></li>
+                    <li><a href="#">院校互访</a></li>
+                </ul>
+            </li>
+            <li><a href="#">校务公开</a></li>
+        </ul>
+    </div>
+</body>
+</html>

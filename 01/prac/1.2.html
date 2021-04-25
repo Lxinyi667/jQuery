@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin:0;padding: 0;}
+        ul{list-style: none;}
+        .con{background-color: pink;position: fixed;right: 0;}
+        a{
+            text-decoration: none;
+            background-color: pink;
+            color: black;
+            width:70px;
+            height: 40px;
+            display: block;
+        }
+        a:hover{
+            background-color: #CCC;color:white;
+        }
+        ul li{
+            float: left;
+            background-color: pink;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;}
+        ul li ul li{float: none;}
+        ul li ul{display: none;}
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function (argument) {
+            $("ul>li").mouseover(function(event) {
+                $(this).children('ul').show();
+                $(this).siblings('ul').children('ul').hide()
+            });
+            $("ul>li").mouseout(function(event) {
+                $(this).children('ul').hide();
+            });
+
+
+        })
+    </script>
+</head>
+<body>
+    <div class="con">
+    <ul>
+        <li><a href="#">首页</a></li>
+        <li><a href="#">一年级</a>
+            <ul>
+                <li><a href="">1</a></li>
+                <li><a href="">1</a></li>
+                <li><a href="">1</a></li>
+                <li><a href="">1</a></li>
+                <li><a href="">1</a></li>
+            </ul>
+        </li>
+        <li><a href="#">二年级</a>
+            <ul>
+                <li><a href="">2</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">2</a></li>
+                <li><a href="">2</a></li>
+            </ul>
+        </li>
+        <li><a href="#">三年级</a>
+            <ul>
+                <li><a href="">3</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">3</a></li>
+            </ul>
+        </li>
+        <li><a href="#">四年级</a>
+            <ul>
+                <li><a href="">4</a></li>
+                <li><a href="">4</a></li>
+                <li><a href="">4</a></li>
+                <li><a href="">4</a></li>
+                <li><a href="">4</a></li>
+            </ul>
+        </li>
+        <li><a href="#">五年级</a></li>
+    </ul>
+</div>
+</body>
+</html>

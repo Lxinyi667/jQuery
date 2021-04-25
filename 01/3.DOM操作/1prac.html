@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function  (argument) {
+            for(var i =1950;i<new Date().getFullYear();i++){
+                $op="<option value=''>"+i+"年</option>"
+              //追加
+              $("#y").append($op);
+            };
+            for(var j =1;j<=12;j++){
+                $op1="<option value=''>"+j+"月</option>"
+              //追加
+              $("#m").append($op1);
+            };
+        });
+
+    </script>
+</head>
+<body>
+    <select name="y" id="y">
+        <option value="">请选择年份</option>
+    </select>
+    <select name="m" id="m">
+        <option value="">请选择月份</option>
+    </select>
+    <select name="d" id="d">
+        <option value="">请选择日份</option>
+    </select>
+</body>
+</html>

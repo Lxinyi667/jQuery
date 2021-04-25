@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        h2{
+            width: 200px;height: 40px;line-height: 40px;
+            background-color: #CCC;text-align: center;
+            cursor: pointer;
+        }
+        p{
+            width: 198px;height: 200px;
+            border:1px solid pink;
+        }
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function  (argument) {
+            //JQ中系统动画（所有系统动画可以使用二种参数（
+            //1.数字 单位是毫秒，比如toggle(1000),就是动画执行时间为1s
+            //2.英文 fast normal slow,分别对应200,400，600ms,不能省略引号，比如：toggle("fast") ））
+        //1.show()方法和hide()方法
+            $("h2").click(function(event) {
+                if($(this).next().is(":visible")){
+                    $(this).next().hide();
+                    }else{
+                    $(this).next().show();
+                    }
+                // $(this).next().toggle("slow");
+                // $(this).next().slideToggle("fast");
+           
+        //2.(fadeIn()和fadeOut()方法)只改变元素的不透明度
+            //fadeOut()方法会在指定的一段时间内降低元素的不透明度，直到元素完全消失（"display:none"）.fadeIn()方法则相反
+                //fadeToggle()  用来替代fadeIn()和fadeOut();
+                //$(this).next().fadeToggle("fast"); 
+            //为了判断元素是否显示，可以用jQ中的is()方法来完成
+             if($(this).next().is(':hidden')){
+                $(this).next().fadeIn(2000);
+            }else {
+                $(this).next().fadeOut(100);
+                }
+        //3.slideUp()方法和slideDown()方法
+            //这二个方法只会改变元素的高度。
+                
+
+             });   
+        })
+    </script>
+</head>
+<body>
+    <h2>我是标题</h2>
+    <p>
+        我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文
+    </p>
+</body>
+</html>

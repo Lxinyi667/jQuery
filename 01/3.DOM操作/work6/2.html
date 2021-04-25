@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin:0;padding: 0;}
+        ul{
+            margin-top: 20px;
+            list-style: none;}
+        a{
+            width:100px;height: 80px;
+            display: inline-block;
+            text-decoration: none;
+            border:1px solid #CCC;
+        }
+        li{
+            float: left;
+            margin-left: 20px;}
+    </style>
+    <script type="text/javascript" src="jquery-1.5.1.min.js"></script>
+    <script type="text/javascript">
+   $(function (argument) {
+             var x=10;
+             var y=20;
+             $("a.tooltip").mouseover(function(e) {
+                 this.myTitle=this.title;
+                 this.title="";
+                 var imgTitle=this.myTitle? "<br/>" +this.myTitle:"";
+                 //创建<div>元素
+                 var tooltip="<div id='tooltip'><img src='"+this.href+"' alt='产品预览图'/>"+imgTitle+"</div>";
+                 $("body").append(tooltip);
+                 $("#tooltip").css({
+                     "top":(e.pangeY+y)+"px",
+                     "left":(e.pangeX+x)+"px",
+                     "background-color":"#CCC",
+                     "color":"white",
+                     "width":"400px",
+                     "height":"330px",
+                     "position":"absolute",         
+                     "top":"100px"
+
+                 }).show("fast");
+             }).mouseout(function(e) {
+                 this.title=this.myTitle;
+                 $("#tooltip").remove();
+             }).mousemove(function(e) {
+                 $("#tooltip").css({
+                     "top": (e.pageY+y)+"px",
+                     "left": (e.pageX+x)+"px"
+                 });
+             });
+        })
+    </script>
+</head>
+<body>
+    <ul>
+        <li><a href="img/a1b.jpg" class="tooltip" title="苹果 ipad"><img src="img/a1.jpg" alt="苹果 iPad"></a></li>
+        <li><a href="img/a2b.jpg" class="tooltip" title="苹果 ipad nano"><img src="img/a2.jpg" alt="苹果 iPad nano"></a></li>
+        <li><a href="img/a3b.jpg" class="tooltip" title="苹果 iPhone"><img src="img/a3.jpg" alt="苹果 iPhone"></a></li>
+        <li><a href="img/a4b.jpg" class="tooltip" title="苹果 MAC"><img src="img/a4.jpg" alt="苹果 MAC"></a></li>
+    </ul>
+</body>
+</html>

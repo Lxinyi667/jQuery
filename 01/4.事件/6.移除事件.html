@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        h2{
+            width: 200px;height: 40px;line-height: 40px;
+            background-color: #CCC;text-align: center;
+        }
+        p{
+            width: 198px;height: 200px;
+            border:1px solid pink;
+        }
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function (argument) {
+           $("h2").bind('click', function(event) {
+               $("body").append("<div>我是新家的成员</div>")
+           }).bind('click', function(event) {
+               $("body").append("<div>我是新家的成员</div>")
+           }).bind('click', function(event) {
+               $("body").append("<div>我是新家的成员</div>")
+            }); 
+        });
+    </script>
+</head>
+<body>
+    <h2>我是标题</h2>
+    <p>
+        我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文
+    </p>
+</body>
+</html>

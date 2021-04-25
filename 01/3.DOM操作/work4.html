@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin:0;padding: 0;}
+        ul li{list-style: none;}
+        .box{position: fixed;top:20px;left: 20px;}
+        .shang{margin-bottom: 15px;margin-left: 180px;}
+        .zhong{float: left;height: 400px;width: 100px;}
+        
+        .left,.right{border:1px solid black;width:280px;height:410px;overflow: auto;float: left;}
+        .son1 li{height: 30px;line-height: 30px;border:1px solid black;text-align: center;margin: 5px;}
+        .son2 li{height: 30px;line-height: 30px;border:1px solid black;text-align: center;margin: 5px;}
+        .bb1,.bb2,.bb3,.bb4{width:80px;height:25px;background-color:#5A8BB7;margin-top: 55px;margin-left: 10px; border:none;color:white;}
+        .hot{background-color: pink;color: white;}
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+       $(function (argument) {
+//已实现功能：
+    //获取左侧数据
+            $(".b1").click(function() {
+               $d='';
+                 $(".son1>li").each(function(i, e) {
+                    $(this).attr('name', $(this).html());
+                    $d=$d+'{"id"："'+(i+1)+'"，name："'+$(this).attr('name')+'"};';
+                });
+                alert($d);
+            });
+    //获取右侧数据
+            $(".b2").click(function(event) {
+                $d='';
+                 $(".son2>li").each(function(i, e) {
+                    $(this).attr('name', $(this).html());
+                    $d=$d+'{"id"："'+(i+1)+'"，name："'+$(this).attr('name')+'"};';
+                });
+                alert($d);
+            });
+    //禁用按钮
+            $(".b3").click(function (argument) {
+                $("input:gt(3)").attr('disabled', 'disabled'); 
+                alert("已禁用按钮❤");
+            });
+    //启用按钮
+            $(".b4").click(function (argument) {
+                 $("input:gt(3)").removeAttr('disabled'); 
+                 alert("已启用按钮❤");
+            });
+
+
+    //选中li标签实现变色
+            $(".son1>li").click(function(event) {
+                $(this).toggleClass('hot');
+            });
+    //点击[.bb1]按钮实现左边选中的移到右边
+            $(".bb1").click(function (argument) {
+                $s=$(".son1>li[class=hot]");
+                $s.removeClass("hot").appendTo('.son2');
+            });
+    //点击[.bb2]按钮实现右边选中的移到左边
+            $(".bb2").click(function (argument) {
+                $s=$(".son2>li[class=hot]");
+                $s.removeClass("hot").appendTo('.son1');
+            });
+    //点击[.bb3]按钮实现全部左边的移到右边
+            // $(".bb3").click(function (argument) {
+            //     $(".son2").html($(".son1").html());
+            //     $(".son1").html("  ");
+            // });
+             $(".bb3").click(function(event) {
+                //.son1的内容移到.son2并且.son2的样式清空
+                 $(".son1").children().removeClass('hot').appendTo('.son2');
+                 
+             });
+    //点击[.bb4]按钮实现全部右边的移到左边
+            $(".bb4").click(function(event) {
+                 $(".son2").children().removeClass('hot').appendTo('.son1');
+             });
+
+});
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="shang">
+        <input type="button" value="获取左侧数据" class="b1">
+        <input type="button" value="获取右侧数据" class="b2">
+        <input type="button" value="禁用按钮" class="b3">
+        <input type="button" value="启用按钮" class="b4">
+    </div>
+<!-- <div class="box1"> -->
+    <div class="left">
+        <ul class="son1">
+            <li>选项卡1</li>
+            <li>选项卡2</li>
+            <li>选项卡3</li>
+            <li>选项卡4</li>
+            <li>选项卡5</li>
+            <li>选项卡6</li>
+            <li>选项卡7</li>
+            <li>选项卡8</li>
+            <li>选项卡9</li>
+            <li>选项卡10</li>
+            <li>选项卡11</li>
+            <li>选项卡12</li>
+            <li>选项卡13</li>
+            <li>选项卡14</li>
+            <li>选项卡15</li>
+            <li>选项卡16</li>
+        </ul>
+    </div>
+    <div class="zhong">
+        <input type="button" value=">" class="bb1">
+        <input type="button" value="<" class="bb2">
+        <input type="button" value=">>>" class="bb3">
+        <input type="button" value="<<<" class="bb4">
+    </div>
+    <div class="right">
+        <ul class="son2">
+         
+        </ul>
+    </div>
+<!-- </div> -->
+</div>
+</body>
+</html>

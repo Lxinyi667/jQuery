@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+    	*{
+    		margin:0;
+    		padding:0;}
+    	/*ul{list-style: none;}*/
+    	.listAll{
+    		border:1px solid pink;
+    		width:550px;
+    		padding: 10px;}
+    	a{
+    		font-size:14px;
+    		text-decoration: none;}
+    	i{
+    		font-size:12px;}
+    	.listAll ul{
+    			/*overflow: hidden;}*/
+    			/*当一个父亲盒子里面所有子元素全部脱离标准流的时候，父元素盒子的高度会被置为0；如果要是父元素高度不为0，有二种解决方案：1.手动设置父元素的高度（这个不推荐），2.父元素设置overflow:hidden(推荐);*/
+    		list-style: none;}
+    	.listAll ul li{
+    		width:33%;
+    		float: left;
+    		text-align: center;
+    		line-height: 21px;
+    		height: 21px;
+    		cursor: pointer;}
+    	.showMore{
+    		clear:both;
+    		padding-top:15px;}
+    	.showMore a{
+    		border:1px solid pink;
+    		margin:0 auto;
+    		padding-left:11px; 
+    		width:120px;
+    		display: block;
+    		height: 24px;
+    		text-align: center;
+    		line-height: 24px;
+    		background: url(../案例-品牌展现/images/down.gif) no-repeat 11px 7px;
+    		}
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+    	$(function (argument) {
+    		var $show=$(".listAll>ul>li:gt(6):not(:last)");
+    		$show.hide();
+    //第一种方法：
+    		// $(".showMore>a").click(function(event) {
+    		// 	if($show.is(":hidden")){
+    		// 		$show.show();
+    		// 		//字编程精简显示品牌，背景图变成up.gif
+    		// 		$(this).html("精简显示品牌").css("background","url(../案例-品牌展现/images/up.gif) no-repeat 11px 7px")
+    		// 		//把几个品牌高亮显示
+    		// 		$("ul a:contains('佳能'),ul a:contains('富士'),ul a:contains('卡西欧')").css("color","red");
+    	
+    		// 	}else {
+    		// 		$show.hide();
+    		// 		//字编程显示全部品牌，背景图变成down.gif
+    		// 		$(this).html("显示全部品牌").css("background","url(../案例-品牌展现/images/down.gif) no-repeat 11px 7px")
+    		// 		//去除所有的高亮显示
+    		// 		$("ul a:contains('佳能'),ul a:contains('富士'),ul a:contains('卡西欧')").css("color","blue");
+    				
+    		// 	}
+    			
+    		// 	//阻止默认事件的发生，因为我添加了链接事件，写了这个就不会实现跳转链接了。
+    		// 	return false;
+    		// });
+    //第二种方法：
+    		$(".showMore>a").toggle(function(event) {
+    				$show.toggle(1000);
+    				//字编程精简显示品牌，背景图变成up.gif
+    				$(this).html("精简显示品牌").css("background","url(../案例-品牌展现/images/up.gif) no-repeat 11px 7px")
+    				//把几个品牌高亮显示
+    				$("ul a:contains('佳能'),ul a:contains('富士'),ul a:contains('卡西欧')").css("color","red");
+    		}, function() {	
+    			$show.toggle(1000);
+    			//字编程显示全部品牌，背景图变成down.gif
+    			$(this).html("显示全部品牌").css("background","url(../案例-品牌展现/images/down.gif) no-repeat 11px 7px")
+    				//去除所有的高亮显示
+    				$("ul a:contains('佳能'),ul a:contains('富士'),ul a:contains('卡西欧')").css("color","blue");
+    		});
+    	});
+    </script>
+</head>
+<body>
+<div class="listAll">
+	<ul>
+		<li ><a href="#">佳能</a><i>(30440) </i></li>
+		<li ><a href="#">索尼</a><i>(27220) </i></li>
+		<li ><a href="#">三星</a><i>(20808) </i></li>
+		<li ><a href="#">尼康</a><i>(17821) </i></li>
+		<li ><a href="#">松下</a><i>(12289) </i></li>
+		<li ><a href="#">卡西欧</a><i>(8242) </i></li>
+		<li ><a href="#">富士</a><i>(14894) </i></li>
+		<li ><a href="#">柯达</a><i>(9520) </i></li>
+		<li ><a href="#">宾得</a><i>(2195) </i></li>
+		<li ><a href="#">理光</a><i>(4114) </i></li>
+		<li ><a href="#">奥林巴斯</a><i>(12205) </i></li>
+		<li ><a href="#">明基</a><i>(1466) </i></li>
+		<li ><a href="#">爱国者</a><i>(3091) </i></li>
+		<li ><a href="#">其它品牌相机</a><i>(7275) </i></li>
+	</ul>
+	<div class="showMore">
+		<a href="more.html"><span>显示全部品牌</span></a>
+	</div>
+</div>
+</body>
+</html>

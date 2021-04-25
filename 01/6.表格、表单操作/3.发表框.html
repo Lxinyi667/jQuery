@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin:0;padding: 0;}
+        .msg{
+            width: 400px;
+            height: 800px;
+            margin: 30px auto;
+        }
+        span{
+            display: block;
+            float: left;
+            width:20px;height: 20px;
+            margin: 10px 2px;
+            padding: 4px 4px;
+            background-color:  
+            font-size: 20px;
+            cursor: pointer;
+            border:1px solid pink; 
+            text-align: center;
+        }
+        span:hover{
+            background-color: yellow;
+        }
+        textarea{
+            border:1px solid pink;
+            color:#CCC;
+            width:300px;
+            font-size: 14px;
+        }
+       
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function (argument) {
+           var $comment =$("#comment");     //获取评论框
+           $(".bigger").click(function(event) {//放大按钮绑定事件
+            // 第一种不够丝滑
+                // if($comment.height()<500){
+                //重新设置高度，在原有基础上+50
+                // $comment.height($comment.height()+50);
+            // 第二种纵享丝滑
+                   if(!$comment.is(':animated')){
+                        if($comment.height()<500){
+                            $comment.animate({height:"+=50"},100);
+                   } 
+               }
+           });
+           $(".smaller").click(function(event) {
+            // 第一种不够丝滑  
+               // if($comment.height()>50){
+               //  //重新设置高度，在原有基础上+50
+               //  $comment.height($comment.height()-50);
+               // }
+            // 第二种纵享丝滑
+                if(!$comment.is(':animated')){
+                        if($comment.height()>50){
+                            $comment.animate({height:"-=50"},100);
+                   } 
+               }
+           });
+           $(".up").click(function(event) {
+               if(!$comment.is(":animated")){
+                $comment.animate({scrollTop:"-=50"},400);
+               }
+           });
+            $(".down").click(function(event) {
+               if(!$comment.is(":animated")){
+                $comment.animate({scrollTop:"+=50"},400);
+               }
+           });
+            var cli=0;
+            $(".bb").click(function(event) {
+                cli++;
+                console.log("cli");
+                if(cli%2!=0){
+                    $("#comment").css("font-weight","Bold");
+                }else {
+                    $("#comment").css("font-weight","normal");
+                }
+            });
+            var cli2=0;
+            $(".I").click(function(event) {
+                cli2++;
+                if(cli2%2!=0){
+                    $("#comment").css("font-style","italic");
+                }else {
+                    $("#comment").css("font-style","normal");
+                }
+            });
+            var cli3=0;
+            $(".U").click(function(event) {
+                cli3++;
+                if(cli3%2!=0){
+                    $("#comment").css("text-decoration","underline");
+                }else {
+                    $("#comment").css("text-decoration","none");
+                }
+            });
+            $(".ff").click(function(event) {
+                $("textarea").css('fontSize',parseInt($("textarea").css('fontSize'))+2+"px");
+            });
+             $(".fff").click(function(event) {
+                $("textarea").css('fontSize',parseInt($("textarea").css('fontSize'))-2+"px");
+            });
+            $("textarea").keyup(function (argument) {
+                $(".xia").html("您已经输入了"+$(this).val().length+"个字,还可以输入"+(500-$(this).val().length)+"个字");
+                // $(this).val($(this).val().substring(0, 499));
+                if($(this).val().length>=499){
+                    $(this).keydown(function(event) {
+                        return false;
+                    });
+                }
+            })
+            
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <div class="msg">
+            <div class="shang">
+                <span class="bigger"> + </span>
+                <span class="smaller"> - </span>
+                <span class="up">↑</span>
+                <span class="down">↓</span>
+                <span class="bb">B</span>
+                <span class="I">I</span>
+                <span class="U">U</span>
+                <span class="ff">F+</span>
+                <span class="fff">F-</span>
+            </div>
+            <div class="zhong">
+                <textarea id="comment" rows="8" cols="20" onfocus="javascript:if(this.value=='请在多行文本框内输入内容')this.value='';" maxlength="500">请在多行文本框内输入内容</textarea>
+            </div>
+            <div class="xia">
+                
+            </div>
+        </div>
+    </form>
+</body>
+</html>

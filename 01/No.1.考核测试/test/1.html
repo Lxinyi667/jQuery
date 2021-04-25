@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin:0;padding: 0;}
+        ul{list-style: none;}
+        .con{
+            background-color: orange;
+            width:160px;
+            height: 185px;
+            border:2px solid yellow;
+        }
+        a{
+            text-decoration: none;
+            width:160px;
+            height: 30px;
+            display: block;
+            color: black;
+        }
+        a:hover{
+            color: white;
+            background-color: #CCC;
+        }
+        .con ul li{
+            color: black;
+            /*height: 30px;*/
+            line-height: 30px;
+            text-align: center;
+        }
+        .con ul li ul{
+            /*display: none;*/
+            height: 97px;
+        }
+        .con ul li ul li {
+            background-color: pink;
+            /*display: none;*/
+        }
+        /*.con ul li:hover ul{display: block;}*/
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.12.2.js"></script>
+    <script type="text/javascript">
+        $(function (argument) {
+            $(".con ul>li").children('ul').hide();
+            $(".con ul>li").click(function(event) {
+                $(this).children('ul').show();
+                $(this).siblings('li').children('ul').hide();                        
+            });
+           
+        })
+    </script>
+</head>
+<body>
+   <div class="con">
+       <ul>
+           <li><a href="#">幼儿园同学</a>
+                <ul>
+                    <li><a href="#">鼻涕虫</a></li>
+                    <li><a href="#">爱哭鬼</a></li>
+                    <li><a href="#">张大胆</a></li>
+                </ul>
+           </li>
+           <li><a href="#">小学同学</a>
+                <ul>
+                    <li><a href="#">张三丰</a></li>
+                    <li><a href="#">张无忌</a></li>
+                    <li><a href="#">乔布斯</a></li>
+                </ul>
+           </li>
+           <li><a href="#">初中同学</a>
+                <ul>
+                    <li><a href="#">盖茨</a></li>
+                    <li><a href="#">川普</a></li>
+                    <li><a href="#">奥巴马</a></li>
+                </ul>
+            </li>
+       </ul>
+   </div>
+</body>
+</html>

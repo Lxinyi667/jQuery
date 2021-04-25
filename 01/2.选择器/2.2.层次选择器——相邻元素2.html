@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin:0;padding: 0;}
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function (argument) {
+           $("ul>li").click(function(event){
+        //1.点击第x个，第x+1个亮
+            // $(this).next("li").css("fontSize","20px").css("backgroundColor","pink");
+            // 使用JSON方式：
+            //$(this).next("li").css("fontSize","20px").css({"fontSize":"25px","backgroundColor":"pink"});
+        //2.点击第x个，第x-1个亮
+            // $(this).prev("li").css("fontSize","20px").css("backgroundColor","pink");
+        //3.点击第x个，其他的都亮
+            //$(this).siblings("li").css("fontSize","20px").css("backgroundColor","pink");
+        //4.点击第x个，0-(x-1)都亮
+            $(this).prevAll("li").css("fontSize","16px").css("backgroundColor","transparent").css("color","black");
+        //5.点击第x个，(x+1)-最后 都亮
+            $(this).css("color","brown").nextAll("li").css("fontSize","20px").css("backgroundColor","pink").css("color","black");
+            //prev()、siblings()、
+           });  
+        });
+    </script>
+</head>
+<body>
+    <ul>
+        <li>兔兔溜</li>
+        <li>兔兔溜</li>
+        <li>兔兔溜</li>
+        <li>兔兔溜</li>
+        <li>兔兔溜</li>
+        <li>兔兔溜</li>
+        <li>兔兔溜</li>
+        <li>兔兔溜</li>
+        <li>兔兔溜</li>
+        <li>兔兔溜</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin:0;padding: 0;}
+        ul{list-style:none; }
+        /*将二级设置不显示*/
+        .nav li ul{display: none;}
+        .nav {width: 180px;height: 227px;background-color: pink;border:3px solid yellow;}
+        /*不能给定li高度，否则二级ul将会被限定在父元素li的高度内*/
+        /*及时点击后显示，也只是溢出，不会将后续li撑开*/
+        .nav li{line-height: 30px;text-align: center;background-color: orange;margin:5px 5px 5px 5px; }
+        .nav li ul {height: 110px;}
+        /*第二种方法：不使用jQuery只打这句就可以实现*/
+        /*.nav li:hover ul{display: block;}*/
+        .nav li ul li{background-color: pink;}
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.12.2.js"></script>
+    <script type="text/javascript">
+        $(function (argument) {
+            $(".nav>li").click(function(event) {
+                $(this).children('ul').show();
+                $(this).siblings('li').children('ul').hide();
+                // end（）回到起始操作
+            });
+        });
+    </script>
+</head>
+<body>
+       <ul class="nav">
+           <li>幼儿园同学
+                <ul>
+                    <li>鼻涕虫</li>
+                    <li>爱哭鬼</li>
+                    <li>张大胆</li>
+                </ul>
+           </li>
+           <li>小学同学
+                <ul>
+                    <li>张三丰</li>
+                    <li>张无忌</li>
+                    <li>乔布斯</li>
+                </ul>
+           </li>
+           <li>初中同学
+                <ul>
+                    <li>盖茨</li>
+                    <li>川普</li>
+                    <li>奥巴马</li>
+                </ul>
+            </li>
+       </ul>
+  
+</body>
+</html>

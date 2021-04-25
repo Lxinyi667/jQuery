@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        body{height: 3000px;}
+        /*.father{width:500px;height: 500px;padding:10px;background-color: pink;position: relative;top: 50px;}*/
+        /* .father{width:500px;height: 500px;padding:10px;background-color: pink;position: fixed;top: 50px;}
+        .son{height: 100%;background-color: yellow;}*/
+        .s2{width:100px;height: 100px;background-color: pink;}
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js">
+    </script>
+    <script type="text/javascript">
+        $(function (argument) {
+            $(window).scroll(function (argument) {
+                // console.log($(this).scrollTop());
+            console.log($(".son").position().top);//距离定位父元素的位置
+            console.log($(".son").offset().top);  //距离窗口左上角的位置
+            });
+
+            // console.log($(".son").position().top);//距离定位父元素的位置
+            // console.log($(".son").offset().top);  //距离窗口左上角的位置
+    //2.测试高度
+            console.log($(".s2").width()+" "+$(".s2").innerWidth()+" "+$(".s2").outerWidth());
+            console.log($(".s2").children('').height());
+        });
+    </script>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <div class="s2">
+    <div>
+        我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国我爱中国
+    </div>
+    </div>
+</body>
+</html>

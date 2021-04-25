@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body,ul,li{
+            padding:0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .rating{
+            width: 300px;
+            height: 26px;
+            margin: 100px auto;
+        }
+        .rating-item{
+            float: left;
+            width:50px;
+            height: 50px;
+            background: url("five.png") no-repeat ;
+            -webkit-background-size:50px 100px;
+            background-size: 50px 100px;
+            background-position: 0 -58px;
+            overflow: hidden;
+            margin-left: 10px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script>
+        var num = 2;//点亮个数
+        $item = $('#rating').find('.rating-item');//获取的所有li
+        //点亮星星函数
+        var dianLiang = function (num) {
+            $item.each(function (index) { //遍历所有li,即所有星星
+                if (index < num){
+                    $(this).css('background-position','0 0') //点亮
+                }else {
+                    $(this).css('background-position','0 -58px') //未点亮
+                }
+            })
+        }
+    //    初始化,默认点亮2颗
+        dianLiang(num)
+    //    绑定事件
+        $item.on('mouseover',function () {
+            dianLiang($(this).index() + 1)
+        }).on('click',function () {
+            dianLiang($(this).index() +1);
+            num = $(this).index() +1
+        })
+        $('#rating').on('mouseout',function () {
+            dianLiang(num)
+        })
+ 
+    </script>
+</head>
+<body>
+    <ul class="rating" id="rating">
+        <li class="rating-item" title="很不好"></li>
+        <li class="rating-item" title="不好"></li>
+        <li class="rating-item" title="一般"></li>
+        <li class="rating-item" title="好"></li>
+        <li class="rating-item" title="很好"></li>
+    </ul>
+    
+</body>
+</html>

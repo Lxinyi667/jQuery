@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件绑定</title>
+    <style type="text/css">
+        /
+        *{margin:0;padding:0;}
+        h2{width: 200px;height: 40px;line-height: 40px;background-color: #CCC;text-align: center;}
+        p{width: 198px;height: 200px;border:1px solid pink;}
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js">
+        
+    </script>
+    <script type="text/javascript">
+    $(function  (argument) {
+//4.1.5 event事件对象的属性
+            //以前的写法
+            // $("h2").click(function(event) {
+            //      $(this).next().toggle(100);
+            // });
+            //the new
+      //事件绑定：在文档装载完成后，如果打算为元素绑定事件来完成某些操作，则可以使用bind（）方法来对匹配元素进行特别事件的绑定
+            //bind type [,data] ,fn(实际的处理函数)
+          $("h2").bind('click', function(event) {
+               $(this).next().toggle(100);
+               console.log(event.type);
+      //event.type该方法的作用是可以获取到事件的类型
+      //event.target的作用是获取到触发事件的元素
+               console.log(event.target);
+               //event.target其实就想等于=this
+               console.log(this);
+          });
+          // bind（event,fn）
+    //JS 写法    
+        var p=document.getElementsByTagName("p")[0];
+        p.oncopy=function (argument) {
+            alert(123);
+        }
+        $(window).click(function(e) {
+      //event.pageX和event.pageY该方法的作用是返回距离文档左的x和y坐标
+      //
+            //当点击body时候，获取当前点击的位置的坐标
+            console.log(e.pageX+"   "+e.pageY);
+        });
+    //event.which()方法
+        //该方法的作用是在鼠标单击事件中获得到鼠标的左、中、右键；在键盘事件中获取键盘的案件，(一般在mousedown事件中使用)
+        //返回值：1-鼠标左键，2-鼠标中键，3-鼠标右键
+        $(window).mousedown(function(e) {
+          //e:事件对象
+            // console.log(e.which);//获取键盘的按键
+        //oncontextmenu事件在元素中用户右击鼠标时触发并打开上下文菜单。    
+            document.oncontextmenu = function () {
+                return false;
+            }
+           
+        });
+    });
+    </script>
+</head>
+<body>
+    <h2>我是标题</h2>
+    <p>
+      我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文
+    </p>
+</body>
+</html>

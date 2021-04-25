@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+    $(function (argument) {
+        //JQuery中循环有二个：each()和map()讲一组元素转换成其他数组（不论是否是元素数组）
+            //map()方法主要用来遍历操作数组和对象，each()主要用来遍历
+                //map()方法 会返回一个新的数组。如果在没有必要的情况下使用map，则有可能造成内存浪费。
+                //each()方法 返回的是原来的数组，并不会新创建一个数组。
+        $(":checkbox").click(function (argument) {
+            var str="您已选中了"+$(":checked").length+"个元素，分别是：";
+            $("input:checked").each(function(index, el) {
+                str=str+$(this).val()+",";
+            });
+            $("#showMsg").html(str.substr(0,str.length-1));//不取最后一个符号
+            //substr()方法：指定的是子串的开始位置和长度
+        });
+    });
+</script>
+</head>
+<body>
+     <fieldset>
+        <legend>个人爱好：</legend>
+    <form action="">
+        姓名：
+        <input type="text" name="xm" list="sss" ><br>
+            <datalist id="sss">
+                <option value="zzz">
+                <option value="xxx">
+                <option value="yyy">
+            </datalist>
+        密码：
+        <input type="password" name="mm"><br>
+        所选学科：<br>
+        <input type="checkbox" value="体育">体育
+        <input type="checkbox" value="化学">化学
+        <input type="checkbox" value="美术">美术
+        <input type="checkbox" value="物理">物理
+        <input type="checkbox" value="语文">语文
+        <input type="button" value="全选/反选"><br>
+        <span id="showMsg" style="color:red"></span><br>
+        <button>提交</button>
+    </form>
+    </fieldset>
+</body>
+</html>

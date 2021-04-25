@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style type="text/css">
+        *{margin:0;padding:0;}
+        h2{
+            width: 200px;height: 40px;line-height: 40px;
+            background-color: #CCC;text-align: center;
+        }
+        p{
+            width: 198px;height: 200px;
+            border:1px solid pink;
+        }
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+    $(function  (argument) {
+        $(document).keydown(function(e) {
+            console.log(e.keyCode);
+            //判断按键是什么
+            //keyCode在不同浏览器可能不同
+            if(e.which==13){
+                console.log("你输入的是回车")
+                }
+            if(e.which==32){
+                console.log("你输入的是空格")
+                }
+            if(e.which==65){
+                console.log("你输入的是A")
+                }
+        });
+        //which的返回值也就是keyCode
+    });
+    </script>
+</head>
+<body>
+    <h2>我是标题</h2>
+    <p>
+        我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文我是正文
+    </p>
+</body>
+</html>

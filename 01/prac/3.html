@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        ul{list-style: none;}
+        ul li{
+            float: left;
+            padding: 5px ;
+            background-color: pink; 
+            height: 40px; line-height: 40px;
+            text-align:center;
+            cursor: pointer;
+        }
+       li:hover{ background-color: #CCC;color: white;}
+       
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function (argument) {
+            //1.先只让第一个显示出来(大于索引为0的都隐藏)
+                $("sh>img:gt(0)").hide();
+            //2.    li的index == img的index
+            $(".a>li").mouseover(function(event) {
+                //使用.index()获取当前li索引；
+                var i=$(this).index();
+                //并使用eq(索引)使图片显示和邻居隐藏；
+                $(".sh>img").eq(i).show().siblings().hide();
+            });
+        })
+    </script>
+</head>
+<body>
+    <div class="con">
+        <ul class="a">
+            <li>国际大牌</li>
+            <li>国妆名品</li>
+            <li>男士用品</li>
+            <li>清洁用品</li>
+        </ul>
+    </div>
+    <div class="sh">
+        <img src="../imgs/guojidapai.jpg" alt="">
+        <img src="../imgs/guozhuangmingpin.jpg" alt="">
+        <img src="../imgs/nanshijingpin.jpg" alt="">
+        <img src="../imgs/qingjieyongpin.jpg" alt="">
+    </div>
+</body>
+</html>

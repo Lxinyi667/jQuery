@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin:0;padding:0;}
+        body{margin:50px;font-size: 14px;}
+        ul{list-style: none;}
+        .container{
+            width: 594px;
+            margin: 0 auto;
+        }
+        .header{
+            height: 35px;line-height: 35px;
+            background-image: url(S4/综合案例/视频展示/img/btn_cartoon.gif);
+            position: relative;
+        }
+        .header h2{
+            font-size: 18px;
+            margin-left: 10px;
+            margin-right: 10px;
+            float: left;
+        }
+        .header ul{
+            height: 8px;width: 56px;
+            position: absolute;
+            top:14px;left: 85px;
+        }
+        .header ul li{
+            width:8px;height: 8px;
+            cursor: pointer;
+            background-color: white;
+            border-radius: 50%;
+            margin-left: 5px;
+            float: left;
+
+        }
+        .header ul li.hot{background-color: #13b5f6;}
+        
+        .header span{
+            display: block;
+            width:30px;height: 22px;
+            position: absolute;top:7.5px;
+            cursor: pointer;
+            
+        }
+        .header span:nth-child(3){
+            background: url(S4/综合案例/视频展示/img/btn_cartoon.gif) no-repeat 0 -401px;
+            left: 148px;
+        }
+        .header span:nth-child(3):active{
+            background: url(S4/综合案例/视频展示/img/btn_cartoon.gif) no-repeat 0 -501px;
+            left: 148px;
+        }
+        .header span:nth-child(4){
+            background: url(S4/综合案例/视频展示/img/btn_cartoon.gif) no-repeat -30px -401px;
+            left: 177px;
+        }
+         .header span:nth-child(4):active{
+            background: url(S4/综合案例/视频展示/img/btn_cartoon.gif) no-repeat -30px -501px;
+            left: 177px;
+        }
+        .header a{
+            text-decoration: none;
+            float: right;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        .content{
+            height: 154px;
+            border:1px solid #CCC;
+            border-top: none;
+            overflow: hidden;
+        }
+        .content ul{
+            /*为了循环播放，设置一个很长很长的盒子宽度*/
+            width: 5000px;
+            padding-top:10px;
+            position: relative;
+        }
+        .content li{
+            float: left;
+            width: 148px;   
+             /*水平居中*/
+            text-align: center;
+
+        }
+        .content li span{
+            display: block;
+            width: 148px;
+        }
+    </style>
+<script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+    $(function (argument) {
+        var w=$(".content").width();
+        console.log(w);
+        var page=1;
+        
+        $(".header>span:eq(0)").click(function(event) {
+            if(page==1){
+                page=4;
+                $(".content>ul").stop(true,true).animate({left: (-3*w)+"px"},200);
+            }else {
+                page--;
+                $(".content>ul").stop(true,true).animate({left: "+="+w+"px"},200);
+            }
+            $(".header ul li").eq(page-1).addClass('hot').siblings().removeClass('hot');
+        });
+         $(".header>span:eq(1)").click(function(event) {
+            if(page==4){
+            // 如果在第四页；让page回到第一页（left:0;）
+                page=1;
+                $(".content>ul").stop(true,true).animate({left: "0"},200);
+            }else {
+            // 不在第四页的时候，page一直+一个w的宽度【向右是-=;向左是+=;】
+                page++;
+                $(".content>ul").stop(true,true).animate({left: "-="+w+"px"},200);
+            }
+            $(".header ul li").eq(page-1).addClass('hot').siblings().removeClass('hot');
+        });
+         $(".header>ul>li").mouseover(function(event) {
+             var i=$(this).index();
+             page=i+1;
+             $(this).addClass('hot').siblings().removeClass('hot');
+             $(".content>ul").stop(true,true).animate({left: (-i*w)+"px"},200);
+         });
+
+
+
+    })
+</script>
+</head>
+<body>
+    <div class="container">
+        <!-- div>h2+(ul>li*4)+a -->
+        <div class="header">
+            <h2>卡通动漫</h2>
+            <ul>
+                <li class="hot"></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <span></span>
+            <span></span>
+            <a href="#">更多>></a>
+        </div>
+        <!-- div>ul>li*16>img+span+i -->
+        <div class="content">
+            <ul>
+                <li>
+                    <img src="../5.动画/S4/综合案例/视频展示/img/01.jpg">
+                    <span>海贼王</span>
+                    <i>播放量：28276</i>
+                </li>
+                <li>
+                    <img src="../5.动画/S4/综合案例/视频展示/img/01.jpg">
+                    <span>海贼王</span>
+                    <i>播放量：28276</i>
+                </li>
+                <li>
+                    <img src="../5.动画/S4/综合案例/视频展示/img/01.jpg">
+                    <span>海贼王</span>
+                    <i>播放量：28276</i>
+                </li>
+                <li>
+                    <img src="../5.动画/S4/综合案例/视频展示/img/01.jpg">
+                    <span>海贼王</span>
+                    <i>播放量：28276</i>
+                </li>
+                <li>
+                    <img src="../5.动画/S4/综合案例/视频展示/img/02.jpg">
+                    <span>哆啦A梦</span>
+                    <i>播放量：28276</i>
+                </li>
+                <li>
+                    <img src="../5.动画/S4/综合案例/视频展示/img/02.jpg">
+                    <span>哆啦A梦</span>
+                    <i>播放量：28276</i>
+                </li>
+                <li>
+                    <img src="../5.动画/S4/综合案例/视频展示/img/02.jpg">
+                    <span>哆啦A梦</span>
+                    <i>播放量：28276</i>
+                </li>
+                <li>
+                    <img src="../5.动画/S4/综合案例/视频展示/img/02.jpg">
+                    <span>哆啦A梦</span>
+                    <i>播放量：28276</i>
+                </li>
+                <li>
+                    <img src="../5.动画/S4/综合案例/视频展示/img/03.jpg">
+                    <span>火影忍者</span>
+                    <i>播放量：28276</i>
+                </li>
+                <li>
+                    <img src="../5.动画/S4/综合案例/视频展示/img/03.jpg">
+                    <span>火影忍者</span>
+                    <i>播放量：28276</i>
+                </li>
+                <li>
+                    <img src="../5.动画/S4/综合案例/视频展示/img/03.jpg">
+                    <span>火影忍者</span>
+                    <i>播放量：28276</i>
+                </li>
+                <li>
+                    <img src="../5.动画/S4/综合案例/视频展示/img/03.jpg">
+                    <span>火影忍者</span>
+                    <i>播放量：28276</i>
+                </li>
+                <li>
+                    <img src="../5.动画/S4/综合案例/视频展示/img/04.jpg">
+                    <span>七龙珠</span>
+                    <i>播放量：28276</i>
+                </li>
+                <li>
+                    <img src="../5.动画/S4/综合案例/视频展示/img/04.jpg">
+                    <span>七龙珠</span>
+                    <i>播放量：28276</i>
+                </li>
+                <li>
+                    <img src="../5.动画/S4/综合案例/视频展示/img/04.jpg">
+                    <span>七龙珠</span>
+                    <i>播放量：28276</i>
+                </li>
+                <li>
+                    <img src="../5.动画/S4/综合案例/视频展示/img/04.jpg">
+                    <span>七龙珠</span>
+                    <i>播放量：28276</i>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

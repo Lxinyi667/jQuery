@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        body{height: 3000px;}
+        div{width:100px;height: 100px;padding: 10px;margin:20px;background:pink;}
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+$(function (argument) {
+    $(window).resize(function(event) {
+        console.log($(window).width()+" "+$(window).height());
+        console.log($(document).width()+" "+$(document).height());
+        // 获取出来的是可视化大小
+        // $(document)或者$(window)都可以通过上述函数获得窗口的可视化区域（不包含滚动条宽度），之前我们用的clientWidth和clientHeight,而且还需要写浏览器兼容。
+        // 如果要获取盒子的大小
+        // 上述函数就不够用了，因为他们只是获取CSS样式中的width和height，不是盒子真实的大小（要包含padding和border）
+    
+// outerWidth()获取第一个匹配元素外部区域宽度（包括补白和边框）（width+padding+border）**更有用
+        // innerWidth()//innerHeight() 计算盒子的内部大小（包括补白，但不包括边框）（width+padding）
+        // 
+    });
+    console.log($("div").width());
+    console.log($("div").innerWidth());
+    console.log($("div").outerWidth());
+});
+    </script>
+</head>
+<body>
+   
+   <div class="con">
+ 
+   </div>
+</body>
+</html>

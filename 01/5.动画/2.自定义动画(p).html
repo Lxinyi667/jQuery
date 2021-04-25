@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        *{margin:0;padding:0;}	
+        body { padding: 60px }
+        div{position: relative; width: 100px; height:100px;border: 1px solid #0050D0;background: #96E555; cursor: pointer;display:none;}
+        h4{ background-color:Gray; padding:5px; height:30px; line-height:30px; margin-bottom:10px; margin-top:10px;}
+    </style>
+   <script type="text/javascript" src="F:/2020四年级/0.JS and JQuery/2.JQuery/01/scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("h4").toggle(function () {
+                $(this).next("div").toggle();
+            }, function () {
+                $(this).next("div").toggle();
+            })
+            $("div:eq(0)").click(function(event) {
+                // $(this).animate({
+                //     left: 500},
+                //     10000, function() {
+                // });
+                $(this).animate({
+                    borderWidth : "+=5px",
+                    left : "+=500px"},
+                    500, function() {
+                    alert("haha");
+                //value值可以是固定值也可以是累加累减值比如：
+                //{left:"500px"}或者{left:"+=500px"}
+                });
+            });
+            $("div:eq(1)").click(function(event) {
+                $(this).animate({
+                    opacity : "-=0.1",
+                    left: "+=500px",
+                    height:"+=20px"},
+                    1000, function() {//1000;在1s内完成{}中的效果
+                });
+            });
+            //异步动画
+            $("div:eq(2)").click(function(event) {
+                $(this).animate({left: "+=100px"},2000).animate({height:"+=100px"},2000);
+            //可以用来产生动画的属性有： （笔记中表格）  
+            //除了表格中这些属性，其他都不可以用来实现动画，比如颜色等等。
+          });
+            //4.综合动画
+            $("div:eq(3)").click(function(event) {
+                $(this).animate({
+                    width: "500px",
+                    height: "50px"},
+                    500).animate({
+                    left: "100px",
+                    top: "100px"},
+                    // fadeIn()和fadeOut()方法只改变元素的不透明度
+                    // 重复执行（会闪动）
+                    500).fadeOut('400').fadeIn('800');
+            });
+            //5.动画未排队
+            $("div:eq(4)").click(function(event) {
+                $(this).animate({
+                    left: "+=100px"},
+                    1000).css("border","10px solid red");
+                    // 1.当一个元素反复执行animate或者其他的系统动画时，将会进行排队，依次执行。
+                    // 2.如果在动画队列中出现非动画操作时，将不会参与排队，首先被执行。
+                    // 3.如果必须在动画队列后再执行非动画操作，必须使用回调函数callback,
+            });
+            //6.动画排队（会依次执行）
+            $("div:eq(5)").click(function(event) {
+                $(this).animate({left: "+=100px"},
+                    1000,function(){
+                $(this).css("border","10px solid red");
+                
+                });
+        });
+       });
+    </script>
+
+</head>
+<body>
+
+<h4>简单动画</h4>
+<div>右移500px</div>
+<h4>多重动画1-同步</h4>
+<div>同时进行右移和高度变大的动画 1 step</div>
+<h4>多重动画1-异步</h4>
+<div>先进行右移，然后再高度变大的动画 2 step</div>
+<h4>综合动画</h4>
+<div>多动作，分步骤动画</div>
+<h4>动画未排队</h4>
+<div>动画未排队</div>
+<h4>动画排队</h4>
+<div>动画排队</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+         window.onload=function (argument) {
+             alert(1);
+         }
+//jQuery注册方法是 $（“div”）.click(function(){})
+        $(document).ready(function(argument) {
+            alert(3);
+        });
+        //document不能加引号，它本身就是一个DOM元素，不能调用DOM对象的方法。
+         $(document).ready(function(argument) {
+            alert(4);
+        });
+        //简写形式：
+         $(function (argument){
+            alert(5);
+            alert($("div:eq(0)").html());
+            //:eq(0)为索引号为第0个的；.html()=.innerhtml：内容
+         });
+    </script>
+</head>
+<body>
+    <div>1s</div>
+    <div>2s</div>
+    <div>3s</div>
+    <img src="F:/咔嚓/624咔嚓/DSC_0021.JPG">
+</body>
+</html>

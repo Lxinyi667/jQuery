@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        //jQuery对象和DOM对象的转化
+        
+    $(function (argument) {  
+//1.DOM-->jQuery
+        var d1=document.getElementsByTagName("div")[0];
+        var $d1=$(d1);//将DOM元素转化成jQuery对象
+        alert($d1.html());//jq对象必须用jq的方法。
+//2.jQuery-->DOM
+        var $divs=$("div");//选取jq里所有的div（3个）
+        var d2=$divs[1];//将jq中的第二个元素转化给DOM(方法1)
+        var d3=$divs.get(2);//（方法2）
+        alert(d2.innerHTML);
+        alert(d3.innerHTML);
+    
+    });
+    </script>
+</head>
+<body>
+    <div>1x</div>
+    <div>2x</div>
+    <div>3x</div>
+</body>
+</html>

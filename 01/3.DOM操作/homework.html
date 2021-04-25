@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin: 0;padding: 0;}
+        li{list-style: none;}
+        .choose{
+            margin: 10px 10px;
+        }
+        .left{
+            width: 300px;
+            height: 450px;
+            border: 1px solid blue;
+            overflow: auto;
+            float: left;
+        }
+        .left li{
+            margin: 3px 10px;
+            border: 1px solid blue;
+            font-size: 18px;
+            padding: 10px 100px;
+        }
+        .btn{
+            float: left;
+        }
+        .btn input{
+            width: 80px;
+            height: 30px;
+            color: white;
+            background-color: grey;
+            border: none;
+            margin: 30px 10px;
+        }
+        .right{
+            width: 300px;
+            height: 450px;
+            border: 1px solid blue;
+            overflow: auto;
+            float: left;
+        }
+        .right li{
+            margin: 3px 10px;
+            border: 1px solid blue;
+            font-size: 18px;
+            padding: 10px 100px;
+        }
+        .hot{
+            background-color: pink;
+        }
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function (argument) {
+            $("li").click(function() {
+                $(this).toggleClass('hot');
+            });
+            //>
+            $(".btn>:button:eq(0)").click(function(event) {
+                $(".left>li").each(function(i, e) {
+                     if($(this).hasClass('hot')){
+                        $(this).detach();
+                        $(this).clone(true).appendTo('.right').removeClass('hot');
+                     }
+                });
+                // $(".right>li").each(function(i, e) {
+                //     $i=$(".right>li:eq(0)")
+                //      if($(this).attr('id')<$i){
+                //         $(this).before($(".right>li:eq(0)"));
+                //      }
+                // });
+            });
+            //<
+            $(".btn>:button:eq(1)").click(function(event) {
+                $(".right>li").each(function(i, e) {
+                     if($(this).hasClass('hot')){
+                        $(this).detach();
+                        $(this).clone(true).appendTo('.left').removeClass('hot');
+                     }
+                });
+            });
+            //>>>
+            $(".btn>:button:eq(2)").click(function(event) {
+                $(".left>li").each(function(i, e) {
+                    $(this).detach();
+                    $(this).clone(true).appendTo('.right').removeClass('hot');
+                });
+            });
+            //<<<
+            $(".btn>:button:eq(3)").click(function(event) {
+                $(".right>li").each(function(i, e) {
+                    $(this).detach();
+                    $(this).clone(true).appendTo('.left').removeClass('hot');
+                });
+            });
+
+            //获取左侧数据
+            $(".choose>:button:eq(0)").click(function(event) {
+                $data='';
+                 $(".left>li").each(function(i, e) {
+                    $(this).attr('name', $(this).html());
+                    $data=$data+'{"id"："'+$(this).attr('id')+'"，name："'+$(this).attr('name')+'"},';
+                });
+                alert($data);
+            });
+            //获取右侧数据
+            $(".choose>:button:eq(1)").click(function(event) {
+                $data='';
+                 $(".right>li").each(function(i, e) {
+                    $(this).attr('name', $(this).html());
+                    $data=$data+'{"id"："'+$(this).attr('id')+'"，name："'+$(this).attr('name')+'"},';
+                });
+                alert($data);
+            });
+            //禁用按钮
+            $(".choose>:button:eq(2)").click(function(event) {
+                //alert($(".btn").children("input").length)
+                $(".btn").children("input").attr('disabled', 'disabled');
+            });
+            //启用按钮
+            $(".choose>:button:eq(3)").click(function(event) {
+                $(".btn").children("input").attr('disabled', false);    
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="choose">
+        <input type="button" value="获取左侧数据">
+        <input type="button" value="获取右侧数据">
+        <input type="button" value="禁用按钮">
+        <input type="button" value="启用按钮">
+    </div>
+    <div>
+        <ul class="left">
+            <li id="1">选项1</li>
+            <li id="2">选项2</li>
+            <li id="3">选项3</li>
+            <li id="4">选项4</li>
+            <li id="5">选项5</li>
+            <li id="6">选项6</li>
+            <li id="7">选项7</li>
+            <li id="8">选项8</li>
+            <li id="9">选项9</li>
+            <li id="10">选项10</li>
+            <li id="11">选项11</li>
+            <li id="12">选项12</li>
+            <li id="13">选项13</li>
+            <li id="14">选项14</li>
+            <li id="15">选项15</li>
+            <li id="16">选项16</li>
+            <li id="17">选项17</li>
+            <li id="18">选项18</li>
+            <li id="19">选项19</li>
+            <li id="20">选项20</li>
+        </ul> 
+        <div class="btn">
+            <input type="button" value=">"><br>
+            <input type="button" value="<"><br>
+            <input type="button" value=">>>"><br>
+            <input type="button" value="<<<">
+        </div>
+        <ul class="right">
+            
+        </ul>  
+    </div>      
+</body>
+</html>

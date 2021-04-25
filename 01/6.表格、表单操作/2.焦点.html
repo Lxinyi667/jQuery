@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        .focus{
+            border:1px solid pink;
+            background-color: #CCC;
+        }
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        $(function (argument) {
+            $(":input").focus(function(event) {
+                $(this).addClass('focus');
+            }).blur(function(event) {
+                $(this).removeClass('focus');
+            });
+        })
+    </script>
+</head>
+<body>
+    <div>
+        <lable>密码：</lable>
+        <input type="text">
+        <lable>用户：</lable>
+        <textarea id="msg"></textarea>
+    </div>
+</body>
+</html>

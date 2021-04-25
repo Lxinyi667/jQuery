@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+       //使用内容过滤选择器进行个别高亮效果
+        $(function (argument) {
+            $(".pp>li:contains('鼠'),.pp>li:contains('兔'),.pp>li:contains('自')").css("color","red"); 
+        });
+        //使用合成事件.toggle()进行弹窗。
+        $(function  (argument) {
+           $("input:eq(0)").toggle(function() {
+            alert("客官，里面请！");
+            }, function() {
+                alert("客官，您又来了！");
+            }, function() {
+                alert("客官，楼上雅间301");   
+            })
+        });
+    </script>
+</head>
+<body>
+<input type="button" value="点我">
+    <ul class="pp">
+        <li>恐龙</li>
+        <li>大象</li>
+        <li>狮子</li>
+        <li>老虎</li>
+        <li>兔子</li>
+        <li>警官</li>
+        <li>自强</li>
+        <li>民主</li>
+        <li>肥仔</li>
+        <li>东吴</li>
+        <li>科技</li>
+        <li>柯基</li>
+        <li>袋鼠</li>
+        <li>鼠懒</li>
+        <li>杰克</li>
+    </ul>
+</body>
+</html>

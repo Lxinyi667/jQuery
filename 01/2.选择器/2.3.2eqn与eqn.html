@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style type="text/css">
+        *{margin:0;padding: 0;}
+        .menu{list-style: none;width:240px;height:40px;}
+        .menu li{float: left;width:20%;border:1px solid pink;height:100%;line-height: 40px;text-align: center;margin-right: 10px;cursor: pointer;}
+        .hot{background-color: pink}
+        .divshow{clear:both;width:230px;height: 200px;background-color: grey;}
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+        //:eq(n)选择器选取带有制定index值的元素。（index值从0开始）
+        //eq(n)方法【jQuery遍历】
+            //这个方法将匹配元素集缩减制定index上的一个。  
+        //索引也有:eq(n)类似的函数叫eq(n)，非常的常用
+    $(function (argument) {
+        $(".divshow>div:gt(0)").hide(); 
+        //.mouseenter或者click事件实现鼠标移动事件
+        $(".menu>li").click(function(event) {
+            //index()可以获取当前点击元素的索引
+            $("body").find("div").eq(2).addClass("blue");
+            var i=$(this).index();
+            $(this).addClass('hot').siblings('li').removeClass('hot');
+            //$(".divshow>div:eq("+i+")").show().siblings().hide();//实现了选项卡根据menu的索引切换divshow的内容（其他的隐藏）。
+            $(".divshow>div").eq(i).show().siblings().hide();
+            //eq(i)函数等价于：eq(i),一般在i是变量的时候用
+           
+        });
+    })
+    </script>
+</head>
+<body>
+    <ul class="menu">
+        <li class="hot">鞋子</li>
+        <li>帽子</li>
+        <li>裤子</li>
+        <li>褂子</li>
+    </ul >
+<div  class="divshow">
+    <div>咔咔咔咔咔咔扩扩扩扩扩扩扩扩扩扩扩扩扩扩扩扩扩扩扩扩扩扩扩</div>
+    <div>哈哈哈哈哈哈哈哈哈哈或或或或或或或或或或或或或或或或或或或</div>
+    <div>嘻嘻嘻嘻嘻嘻嘻嘻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻寻</div>
+    <div>啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</div>
+</div>
+</body>
+</html>

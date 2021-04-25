@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>轮播图</title>
+        <style type="text/css">
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            .box{
+                width: 800px;
+                height: 300px;
+                position: relative;
+                overflow: hidden;
+                margin: 100px auto;
+            }
+            .box .slider{
+                width: 100%;
+                height: 100%;
+            }
+            .box .slider ul{
+                width: 1000%;
+                list-style: none;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .box .slider img{
+                vertical-align: top;
+            }
+            .box .slider ul li{
+                float: left;
+            }
+            .box .scroll_nav{
+                list-style: none;
+                position: absolute;
+                right: 20px;
+                bottom: 10px;
+            }
+            .box .scroll_nav li{
+                float: left;
+                width: 20px;
+                height: 20px;
+                background-color: #000;
+                color: #fff;
+                text-align: center;
+                font-size: 12px;
+                font-family: "微软雅黑";
+                line-height: 20px;
+                cursor: pointer;
+                border-radius: 50%;
+                margin-right: 5px;
+            }
+            .box .scroll_nav li.current{
+                background-color: #356acb;
+            }
+            .box .arr{
+                width: 40px;
+                height: 50px;
+                font-size: 35px;
+                font-family: "黑体";
+                line-height: 50px;
+                background-color: rgba(0,0,0,0.3); /*这种方式能让背景透明而文本不收影响*/
+                color: #fff;
+                text-align: center;
+                position: absolute;
+                top: 125px;
+                font-weight: bold;
+                display: none;
+                cursor: pointer;
+                /* opacity: 0.1; opacity/属性会让盒子半透明，与此同时它也会让黑子内部的文本半透明*/
+            }
+            .box .arr_prev{
+                left: 5px;
+            }
+            .box .arr_next{
+                right: 5px;
+            }
+        </style>
+        <script type="text/javascript" src="E:/2020四年级/0.JS and JQuery/2.JQuery/01/scripts/jquery-1.7.2.js"></script>
+        <script type="text/javascript">
+            function $(id){
+                return document.getElementById(id);
+            }        
+            window.onload = function(){
+                $('scroll').onmouseover = function(){ //鼠标放在屏幕上的效果
+                    var arrs = this.getElementsByClassName('arr');
+                    for (var i = 0; i < arrs.length; i++) {
+                        arrs[i].style.display = 'block';
+                    }
+                }
+                $('scroll').onmouseout = function(){  //鼠标离开屏幕中心时不显示
+                    var arrs = this.getElementsByClassName('arr');
+                    for (var i = 0; i < arrs.length; i++) {
+                        arrs[i].style.display = 'none';
+                    }
+                }
+                
+                var imgCount = $('sl').getElementsByTagName('li').length;
+                for (var i = 0; i < imgCount; i++) {
+                    var li = document.createElement('li');
+                    li.innerHTML = i+1;
+                    if(i == 0){
+                        li.setAttribute('class', 'current');
+                    }
+                    //根据排它原理实现轮播导航样式
+                    li.setAttribute('index', i);//给li标签添加一个index属性，用于在点击导航时，获取序号
+
+                    li.onclick = function(){
+                        var lis = $('sc_nav').getElementsByTagName('li');
+                        for (var i = 0; i < lis.length; i++){
+                            lis[i].className = '';
+                        }
+                        this.className = 'current';
+                        //设置动画终点位置
+                        var index = this.getAttribute('index');//getAttribute获得属性的值
+                        target = index * -800;
+                    }
+                    $('sc_nav').appendChild(li);
+                }
+                //缓动动画实现动画效果
+                var leader = 0;
+                var target = 0;
+                setInterval(function(){
+                    leader = leader +(target - leader)/10;
+                    $('sl_ul').style.left = leader + 'px';
+
+                }, 20);
+
+                //点击箭头滚动
+                //左箭头点击事件
+                $('prev').onclick = function(){
+                    if(target < 0){
+                        target += 800;
+                    }else{
+                        target = -3200;
+                    }
+                    setCurrent();
+                }
+                //右箭头点击事件
+                $('next').onclick = function(){
+                    if(target > -3200){
+                        target -= 800;
+                    }else{
+                        target = 0;//如果已经是最后一张图，那么再点击就直接回到第一张图
+                    }
+                    setCurrent();
+                }
+                //修改对应的nav栏中的按钮为被选中项
+                function setCurrent(){
+                    var index = Math.abs(target / 800);//取绝对值
+                    var lis = $('sc_nav').getElementsByTagName('li');
+                    for(var i = 0; i<lis.length; i++){
+                        lis[i].className = '';
+                    }
+                    lis[index].className = "current";
+                }
+            }
+
+        </script>
+    </head>
+    <body>
+        <div class="box" id="scroll">
+            <div class="slider" id="sl">
+                <ul id="sl_ul">
+                    <li><img src="../图片幻灯素材/1.jpg" alt=""></li>
+                    <li><img src="../图片幻灯素材/2.jpg" alt=""></li>
+                    <li><img src="../图片幻灯素材/3.jpg" alt=""></li>
+                    <li><img src="../图片幻灯素材/4.jpg" alt=""></li>
+                    <li><img src="../图片幻灯素材/5.jpg" alt=""></li>
+                    <li><img src="../图片幻灯素材/6.jpg" alt=""></li>
+                </ul>
+            </div>
+            <ul class="scroll_nav" id="sc_nav">
+                <!-- <li class="current">1</li>
+                                <li>2</li>
+                                <li>3</li>
+                                <li>4</li>
+                                <li>5</li> -->
+            </ul>
+            <span class="arr arr_prev" id="prev"><</span>
+            <span class="arr arr_next" id="next">></span>
+        </div>
+    </body>
+</html>

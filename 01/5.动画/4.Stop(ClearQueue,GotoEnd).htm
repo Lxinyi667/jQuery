@@ -1,0 +1,131 @@
+﻿
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Panel</title>
+<style type="text/css">
+*{margin:0;padding:0;}	
+body { font-size: 13px; line-height: 130%; padding: 60px }
+#panel { width: 60px; border: 1px solid #0050D0 ;height:22px;overflow:hidden;}
+.head { padding: 5px; background: #96E555; cursor: pointer;width: 300px;}
+.content { padding: 10px; text-indent: 2em; border-top: 1px solid #0050D0;display:block; width:280px;}
+</style>
+<script type="text/javascript" src="F:/2020四年级/0.JS and JQuery/2.JQuery/01/scripts/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+    $(function () {
+        // stop(clearQueue，goToEnd),两个参数可选，有二个值true和false
+        // clearQueue清楚后续动画状态
+        // gotoEnd()瞬间跳转到动画末尾状态，
+        $("button:eq(0)").click(function () {
+            //解决因为多次点击按钮执行，效果累计的情况
+            if(!$("#panel").is(":animated")){
+                $("#panel")
+			.animate({ height: "150" }, 1000)
+			.animate({ width: "300" }, 1000)
+			.hide(2000)
+			.animate({ height: "show", width: "show", opacity: "show" }, 1000)
+			.animate({ height: "500" }, 1000);
+            }
+        });
+        $("button:eq(1)").click(function () {
+            $("#panel").stop(); //停止当前动画，继续下一个动画
+        });
+        $("button:eq(2)").click(function () {
+            $("#panel").stop(true,false); //清除元素的所有动画
+        });
+        $("button:eq(3)").click(function () {
+            $("#panel").stop(false, true); //让当前动画直接到达末状态 ，继续下一个动画
+        });
+        $("button:eq(4)").click(function () {
+            $("#panel").stop(true, true); //清除元素的所有动画，让当前动画直接到达末状态 （不是全体动画的末尾）
+        });
+
+    })
+</script>
+</head>
+<body>
+ <button>开始一连串动画</button>
+ <button>stop()</button>
+ <button>stop(true)</button>
+ <button>stop(false,true)</button>
+ <button>stop(true,true)</button>
+
+
+
+<div id="panel">
+	<h5 class="head">什么是jQuery?</h5>
+	<div class="content">
+		jQuery是继Prototype之后又一个优秀的JavaScript库，它是一个由 John Resig 创建于2006年1月的开源项目。jQuery凭借简洁的语法和跨平台的兼容性，极大地简化了JavaScript开发人员遍历HTML文档、操作DOM、处理事件、执行动画和开发Ajax。它独特而又优雅的代码风格改变了JavaScript程序员的设计思路和编写程序的方式。
+	</div>
+</div>
+
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <p>
+        &nbsp;</p>
+    <table style="letter-spacing: normal; orphans: auto; text-indent: 0px; text-transform: none; widows: auto; word-spacing: 0px; -webkit-text-stroke-width: 0px;">
+        <tr>
+            <td class="webkit-line-content">
+                $(&quot;#panel&quot;)
+            </td>
+        </tr>
+        <tr>
+            <td class="webkit-line-number" value="18">
+            </td>
+            <td class="webkit-line-content">
+                .animate({height : &quot;150&quot; } , 1000 )
+            </td>
+        </tr>
+        <tr>
+            <td class="webkit-line-number" value="19">
+            </td>
+            <td class="webkit-line-content">
+                .animate({width : &quot;300&quot; } , 1000 )
+            </td>
+        </tr>
+        <tr>
+            <td class="webkit-line-number" value="20">
+            </td>
+            <td class="webkit-line-content">
+                .hide(2000)
+            </td>
+        </tr>
+        <tr>
+            <td class="webkit-line-number" value="21">
+            </td>
+            <td class="webkit-line-content">
+                .animate({height : &quot;show&quot; , width : &quot;show&quot; , opacity : &quot;show&quot; } , 1000 )
+            </td>
+        </tr>
+        <tr>
+            <td class="webkit-line-number" value="22">
+            </td>
+            <td class="webkit-line-content">
+                .animate({height : &quot;500&quot;} , 1000 );
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

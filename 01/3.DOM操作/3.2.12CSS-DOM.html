@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>透明度</title>
+    <style type="text/css">
+        img:nth-child(1){border:1px solid blue;}
+    </style>
+    <script type="text/javascript" src="../scripts/jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+$(function (argument) {
+    // alert($("img:eq(0)").css("border"));
+    // alert($("img:eq(1)").css("border"));
+    //设置一个CSS样式
+          $("img:eq(1)").css("width","50px");
+    //同时设置多个CSS样式
+          $("img:eq(2)").css({"width":"200px","border":"1px solid red"}); 
+});
+    </script>
+</head>
+<body>
+   
+   <div class="con">
+    <!-- div.father>img[src=第三题/0$.jpg]*6 -->
+       <img src="1.JPG" alt="">
+       <img src="1.JPG" alt="">
+       <img src="1.JPG" alt="">
+       <img src="1.JPG" alt="">
+       <img src="1.JPG" alt="">
+       <img src="1.JPG" alt="">
+   </div>
+</body>
+</html>
